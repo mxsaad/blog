@@ -1,6 +1,7 @@
 <script>
     import NavBar from '../components/NavBar.svelte'
     import Hero from '../components/Hero.svelte'
+    import BlogPreview from '../components/BlogPreview.svelte'
 </script>
 
 <style>
@@ -13,10 +14,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Home | Muhammad Saad</title>
-        <link rel="stylesheet" href="style.css">
       </head>
-    <body>
+    <body class="bg-[#0b0909]">
         <NavBar />
         <Hero />
+        <BlogPreview />
     </body>
 </html>
