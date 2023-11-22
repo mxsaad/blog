@@ -4,7 +4,7 @@
     import FaClock from 'svelte-icons/fa/FaClock.svelte'
 </script>
 
-<div class="card max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-xl xl:max-w-md bg-base-100 shadow-lg shadow-neutral hover:shadow-primary hover:scale-105 duration-300">
+<div class="card max-w-sm md:max-w-xl lg:max-w-xl xl:max-w-md bg-base-100 shadow-lg shadow-neutral hover:shadow-primary hover:scale-105 duration-300">
     <div class="card-body">
       <div class="stat-desc flex items-center mb-2">
         <span class="w-3"><FaClock/></span>

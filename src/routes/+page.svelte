@@ -2,6 +2,7 @@
     import NavBar from '../components/NavBar.svelte'
     import Hero from '../components/Hero.svelte'
     import BlogPreview from '../components/BlogPreview.svelte'
+    import Footer from '../components/Footer.svelte';
 </script>
 
 <style>
@@ -19,5 +20,6 @@
         <NavBar />
         <Hero />
         <BlogPreview />
+        <Footer />
     </body>
 </html>
