@@ -1,5 +1,5 @@
-<footer class="footer footer-center bg-primary p-4 text-primary-content">
+<footer class="footer footer-center px-4 pb-8">
     <aside>
-      <p>Copyright © 2023 - All rights reserved by Muhammad Saad</p>
+      <p>Copyright © 2023 - Muhammad Saad</p>
     </aside>
 </footer>

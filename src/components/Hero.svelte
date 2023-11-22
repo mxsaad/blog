@@ -4,10 +4,6 @@
     import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte'
 </script>
 
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=The+Nautigal:wght@700&display=swap');
-</style>
-
 <section>
     <div class="hero min-h-screen" style="background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9a45b024-f1d7-4024-b8ec-631c7bb458ba/dfzikmt-df170e0c-0a95-46f9-9ba5-d89c12a59329.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzlhNDViMDI0LWYxZDctNDAyNC1iOGVjLTYzMWM3YmI0NThiYVwvZGZ6aWttdC1kZjE3MGUwYy0wYTk1LTQ2ZjktOWJhNS1kODljMTJhNTkzMjkuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.JOZK4j0Z7NWnCNFVpKfN8DaBHfCHFWr-oNiiZeFiqKE);">
         <div class="hero-overlay bg-base-100 bg-opacity-50"></div>
