@@ -5,8 +5,8 @@
 
 <section class="p-8 flex flex-col items-center">
     <div class="flex items-center mb-6">
-        <h2 class="flex items-center gap-2 text-lg sm:text-2xl md:text-3xl font-bold">
-            <span class="h-4 sm:h-6 md:h-8"><FaUserCircle/></span> About Me
+        <h2 class="flex gap-2 items-center text-lg sm:text-2xl md:text-3xl font-bold">
+            <span class="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"><FaUserCircle/></span> About Me
         </h2>
     </div>
     <div class="card p-8 gap-4 max-w-sm md:max-w-md lg:max-w-xl xl:max-w-3xl bg-base-100 shadow-lg shadow-neutral hover:shadow-primary hover:scale-[102%] duration-300">
