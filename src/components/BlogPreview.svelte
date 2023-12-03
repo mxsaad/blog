@@ -34,7 +34,7 @@
 
 <section class="w-screen flex flex-col justify-center items-center mb-6 p-8">
         <div class="flex items-center justify-between mb-6 w-[24rem] md:w-[28rem] lg:w-[42rem]">
-            <h2 class="flex-grow flex items-center gap-2 text-lg sm:text-2xl md:text-3xl font-bold">
+            <h2 class="flex-grow flex items-center gap-2 text-lg sm:text-xl md:text-2xl font-bold">
                 <span class="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"><FaNewspaper/></span> Latest Articles
             </h2>
             <a class="text-sm sm:text-md md:text-lg flex items-center gap-2 link link-primary link-hover ml-auto hover:scale-105 duration-300">

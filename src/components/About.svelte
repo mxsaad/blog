@@ -5,7 +5,7 @@
 
 <section class="p-8 w-scren flex flex-col items-center">
     <div class="flex items-center mb-6">
-        <h2 class="flex gap-2 items-center text-lg sm:text-2xl md:text-3xl font-bold">
+        <h2 class="flex gap-2 items-center text-lg sm:text-xl md:text-2xl font-bold">
             <span class="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"><FaUserCircle/></span> About Me
         </h2>
     </div>

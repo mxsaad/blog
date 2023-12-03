@@ -13,13 +13,13 @@
   </nav> 
   <nav>
     <div class="grid grid-flow-col gap-4">
-        <a class="w-6 md:w-7 lg:w-8" href="mailto:hi@mailias.maskmy.id" target="_blank" rel="noopener noreferrer">
+        <a class="w-6" href="mailto:hi@mailias.maskmy.id" target="_blank" rel="noopener noreferrer">
             <FaPaperPlane/>
         </a>
-        <a class="w-6 md:w-7 lg:w-8" href="https://github.com/mxsaad" target="_blank" rel="noopener noreferrer">
+        <a class="w-6" href="https://github.com/mxsaad" target="_blank" rel="noopener noreferrer">
             <FaGithub/>
         </a>
-        <a class="w-6 md:w-7 lg:w-8" href="https://linkedin.com/in/mxsaad" target="_blank" rel="noopener noreferrer">
+        <a class="w-6" href="https://linkedin.com/in/mxsaad" target="_blank" rel="noopener noreferrer">
             <FaLinkedin/>
         </a>
     </div>
