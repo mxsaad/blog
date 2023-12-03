@@ -16,7 +16,7 @@
               <li><a class="hover:text-primary hover:scale-105 duration-300">Guestbook</a></li>
             </ul>
           </div>
-          <a class="font-['The_Nautigal'] btn btn-circle btn-ghost hover:bg-transparent hover:text-primary hover:scale-105 duration-300 text-2xl">MS</a>
+          <a class="font-['The_Nautigal'] btn btn-circle btn-ghost hover:bg-transparent hover:text-primary hover:scale-105 duration-300 text-2xl lg:ml-2">MS</a>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
