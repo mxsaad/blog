@@ -4,7 +4,7 @@
   import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte'
 </script>
 
-<footer class="footer footer-center p-10 bg-neutral text-neutral-content rounded-t-box">
+<footer class="footer footer-center p-10 bg-neutral text-neutral-content">
   <nav class="grid grid-flow-col gap-4">
     <a class="link link-hover">Home</a>
     <a class="link link-hover">Blog</a>
