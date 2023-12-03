@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import FaPaperPlane from 'svelte-icons/fa/FaPaperPlane.svelte'
   import FaGithub from 'svelte-icons/fa/FaGithub.svelte'
   import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte'
@@ -6,10 +6,10 @@
 
 <footer class="footer footer-center p-10 bg-neutral text-neutral-content">
   <nav class="grid grid-flow-col gap-4">
-    <a class="link link-hover">Home</a>
-    <a class="link link-hover">Blog</a>
-    <a class="link link-hover">Snippets</a>
-    <a class="link link-hover">Guestbook</a>
+    <a href="/" class="link link-hover">Home</a>
+    <a href="/blog" class="link link-hover">Blog</a>
+    <a href="/snippets" class="link link-hover">Snippets</a>
+    <a href="/guestbook" class="link link-hover">Guestbook</a>
   </nav> 
   <nav>
     <div class="grid grid-flow-col gap-4">

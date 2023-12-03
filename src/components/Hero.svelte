@@ -1,8 +1,7 @@
-<script>
+<script lang="ts">
     import FaPaperPlane from 'svelte-icons/fa/FaPaperPlane.svelte'
     import FaGithub from 'svelte-icons/fa/FaGithub.svelte'
     import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte'
-
     import hero from '../assets/hero.gif'
 </script>
 

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import FaUserCircle from 'svelte-icons/fa/FaUserCircle.svelte'
     import FaArrowRight from 'svelte-icons/fa/FaArrowRight.svelte'
 </script>
