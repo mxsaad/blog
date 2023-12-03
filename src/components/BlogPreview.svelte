@@ -3,33 +3,24 @@
     import FaArrowRight from 'svelte-icons/fa/FaArrowRight.svelte'
     import BlogPreviewCard from "./BlogPreviewCard.svelte";
     import { onMount } from 'svelte';
-    import { Client, Databases, Query, type Models } from 'appwrite';
+    import { Query, type Models } from 'appwrite';
+    import { databases } from "$lib/appwrite"
+    import { PUBLIC_APPWRITE_DATABASE_ID, PUBLIC_APPWRITE_COLLECTION_ID } from "$env/static/public"
 
     let posts: Models.Document[] = [];
     let loading = true;
-
-    const client = new Client()
-        .setEndpoint('https://cloud.appwrite.io/v1')
-        .setProject('655e6a0499db44afa840');
-    const databases = new Databases(client);
-
+    
     const query = [
         Query.select(['title', 'desc', 'mins', 'date']),
         Query.limit(3),
     ];
 
-    onMount(() => {
-        databases
-            .listDocuments('656ca40858cbb68a748f', '656ca41ce59710b30826', query)
-            .then((response) => {
-                console.log('Fetched posts:', response.documents);
-                posts = response.documents;
-            })
-            .catch((error) => {
-                console.error('Error fetching posts:', error);
-            })
-            .finally(() => loading = false);
-    });
+    onMount(() => databases
+        .listDocuments(PUBLIC_APPWRITE_DATABASE_ID, PUBLIC_APPWRITE_COLLECTION_ID, query)
+        .then((response) => posts = response.documents)
+        .catch((error) => console.error('Error fetching posts:', error))
+        .finally(() => loading = false)
+    );
 </script>
 
 <section class="w-screen flex flex-col justify-center items-center mb-6 p-8">
