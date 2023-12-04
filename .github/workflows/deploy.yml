@@ -4,6 +4,12 @@ on:
   push:
     branches: 'main'
 
+env:
+  PUBLIC_APPWRITE_ENDPOINT: ${{ secrets.PUBLIC_APPWRITE_ENDPOINT }}
+  PUBLIC_APPWRITE_PROJECT_ID: ${{ secrets.PUBLIC_APPWRITE_PROJECT_ID }}
+  PUBLIC_APPWRITE_DATABASE_ID: ${{ secrets.PUBLIC_APPWRITE_DATABASE_ID }}
+  PUBLIC_APPWRITE_COLLECTION_ID: ${{ secrets.PUBLIC_APPWRITE_COLLECTION_ID }}
+
 jobs:
   build_site:
     runs-on: ubuntu-latest
