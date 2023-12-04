@@ -6,7 +6,6 @@
     import { Query, type Models } from 'appwrite';
     import { databases } from "$lib/appwrite"
     import { PUBLIC_APPWRITE_DATABASE_ID, PUBLIC_APPWRITE_COLLECTION_ID } from "$env/static/public"
-    import { base } from "$app/paths"
 
     let posts: Models.Document[] = [];
     let loading = true;
@@ -29,7 +28,7 @@
             <h2 class="flex-grow flex items-center gap-2 text-lg sm:text-xl md:text-2xl font-bold">
                 <span class="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"><FaNewspaper/></span> Latest Articles
             </h2>
-            <a href="{base}/blog" class="text-sm sm:text-md md:text-lg flex items-center gap-2 link link-primary link-hover ml-auto hover:scale-105 duration-300">
+            <a href="/" class="text-sm sm:text-md md:text-lg flex items-center gap-2 link link-primary link-hover ml-auto hover:scale-105 duration-300">
                 All Articles <span class="h-3 w-3 sm:h-4 sm:w-4"><FaArrowRight/></span>
             </a>
         </div>

@@ -21,9 +21,9 @@
             <span class="w-3 sm:w-4"><FaCalendarAlt/></span> &nbsp {date}
         </div>
         <div class="card-actions justify-end">
-            <button class="btn btn-primary btn-xs sm:btn-sm">
+            <a href="/" class="btn btn-primary btn-xs sm:btn-sm">
                 Read More <span class="w-3 sm:w-4"><FaArrowRight/></span>
-            </button>
+            </a>
         </div>
       </div>
     </div>
