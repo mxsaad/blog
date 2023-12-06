@@ -13,7 +13,7 @@
   </nav> 
   <nav>
     <div class="grid grid-flow-col gap-4">
-        <a class="w-6" href="mailto:hi@mailias.maskmy.id" target="_blank" rel="noopener noreferrer">
+        <a class="w-6" href="mailto:hi@mxsaad.com" target="_blank" rel="noopener noreferrer">
             <FaPaperPlane/>
         </a>
         <a class="w-6" href="https://github.com/mxsaad" target="_blank" rel="noopener noreferrer">

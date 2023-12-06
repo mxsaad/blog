@@ -13,7 +13,7 @@
         <h2 class="card-title self-center text-4xl sm:text-5xl font-['The_Nautigal']">Muhammad Saad</h2>
         <p class="text-justify text-sm sm:text-md">Using modern technologies to solve modern problems. My specialty is fullstack development, but I love learning new technologies. I'm passionate about privacy, security, cryptocurrency, productivity, fitness, and reading. If that sounds like you, check out my blog or reach out to connect.</p>
         <div class="card-actions justify-end">
-            <a class="btn btn-primary btn-xs sm:btn-sm" href="mailto:hi@mailias.maskmy.id" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-primary btn-xs sm:btn-sm" href="mailto:hi@mxsaad.com" target="_blank" rel="noopener noreferrer">
                 Contact <span class="w-3 sm:w-4"><FaArrowRight/></span>
             </a>
         </div>
