@@ -34,7 +34,7 @@
     </div>
     <div class="flex flex-col xl:flex-row gap-6">
         {#if loading}
-            <div class="skeleton bg-base-100 h-52 w-[20rem] sm:w-[24rem] md:w-[28rem] lg:w-[42rem] xl:w-[24rem]"></div>
+            <div class="skeleton h-52 w-[20rem] sm:w-[24rem] md:w-[28rem] lg:w-[42rem] xl:w-[24rem]"></div>
         {:else}
             {#each posts as post (post.id)}
                 <BlogPreviewCard title={post.title} desc={post.desc} mins={post.mins} date={formatDate(post.date)}/>
