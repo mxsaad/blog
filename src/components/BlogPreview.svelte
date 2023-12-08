@@ -3,7 +3,7 @@
     import FaArrowRight from 'svelte-icons/fa/FaArrowRight.svelte'
     import BlogPreviewCard from "./BlogPreviewCard.svelte";
     import { onMount } from 'svelte';
-    import db from '$lib/firebase';
+    import { db, firebaseConfig} from '$lib/firebase';
     import { collection, getDocs, query, orderBy, limit, type DocumentData, Timestamp } from 'firebase/firestore/lite';
 
     let posts: DocumentData[] = [];
@@ -13,9 +13,19 @@
 
     onMount(async () => {
         try {
+            // Log environment variables
+            console.log('Firebase Config:', firebaseConfig);
+            console.log('Fetching posts...');
+
             const q = query(collection(db, 'blogs'), orderBy('date', 'desc'), limit(3));
+            console.log('Query:', q);
+
             const querySnapshot = await getDocs(q);
+            console.log('Query snapshot:', querySnapshot);
+
             posts = querySnapshot.docs.map(doc => doc.data());
+            console.log('Posts:', posts);
+
             loading = false;
         } catch (error) {
             console.error('Error loading posts:', error);
