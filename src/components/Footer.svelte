@@ -7,9 +7,9 @@
 <footer class="footer footer-center p-10 bg-neutral text-neutral-content">
   <nav class="grid grid-flow-col gap-4">
     <a href="/" class="link link-hover">Home</a>
-    <a href="/" class="link link-hover">Blog</a>
-    <a href="/" class="link link-hover">Snippets</a>
-    <a href="/" class="link link-hover">Guestbook</a>
+    <a href="/blog" class="link link-hover">Blog</a>
+    <a href="/snippets" class="link link-hover">Snippets</a>
+    <a href="/guestbook" class="link link-hover">Guestbook</a>
   </nav> 
   <nav>
     <div class="grid grid-flow-col gap-4">

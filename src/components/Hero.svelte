@@ -2,11 +2,11 @@
     import FaPaperPlane from 'svelte-icons/fa/FaPaperPlane.svelte'
     import FaGithub from 'svelte-icons/fa/FaGithub.svelte'
     import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte'
-    import hero from '../assets/hero.gif'
+    import hero from '$assets/hero.gif'
 </script>
 
 <section>
-    <div class="hero min-h-screen" style="background-image: url({hero});">
+    <div class="hero w-screen min-h-screen" style="background-image: url({hero});">
         <div class="hero-overlay bg-base-100 bg-opacity-50"></div>
         <div class="hero-content text-start">
           <div class="max-w-md md:max-w-lg lg:max-w-2xl px-4">
