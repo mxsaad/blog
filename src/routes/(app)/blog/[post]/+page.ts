@@ -9,7 +9,10 @@ export const load: PageLoad = async ({ fetch, params }) => {
         const fileRef = ref(storage, `${params.post}.md`);
         const downloadUrl = await getDownloadURL(fileRef);
         const response = await fetch(downloadUrl);
-        return { markdown: await response.text() };
+        return { 
+            markdown: await response.text(),
+            post: params.post,
+        };
     } catch (e) {
         throw error(404, 'The requested post could not be found.');
     }
