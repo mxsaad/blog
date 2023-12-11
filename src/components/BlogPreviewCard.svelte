@@ -7,6 +7,7 @@
     export let desc: string
     export let date: string
     export let mins: number
+    export let file: string
 </script>
 
 <div class="card w-[20rem] sm:w-[24rem] md:w-[28rem] lg:w-[42rem] xl:w-[28rem] 2xl:w-[24rem] bg-base-100 shadow-lg shadow-neutral hover:shadow-primary hover:scale-105 duration-300">
@@ -21,7 +22,7 @@
             <span class="w-3 sm:w-4"><FaCalendarAlt/></span> &nbsp {date}
         </div>
         <div class="card-actions justify-end">
-            <a href="/" class="btn btn-primary btn-xs sm:btn-sm">
+            <a href="/blog/{file}" class="btn btn-primary btn-xs sm:btn-sm">
                 Read More <span class="w-3 sm:w-4"><FaArrowRight/></span>
             </a>
         </div>

@@ -9,8 +9,9 @@
 
     let posts: DocumentData[] = [];
     let loading = true;
-    interface Date { seconds: number, nanoseconds: number } 
-    const formatDate = ({seconds, nanoseconds}: Date) => new Timestamp(seconds, nanoseconds).toDate().toLocaleDateString()
+
+    const formatDate = ({seconds, nanoseconds}: {seconds: number, nanoseconds: number}) => 
+        new Timestamp(seconds, nanoseconds).toDate().toLocaleDateString()
 
     onMount(async () => {
         try {
@@ -38,7 +39,7 @@
             <BlogPreviewCardSkeleton/>
         {:else}
             {#each posts as post (post.id)}
-                <BlogPreviewCard title={post.title} desc={post.desc} mins={post.mins} date={formatDate(post.date)}/>
+                <BlogPreviewCard title={post.title} desc={post.desc} mins={post.mins} date={formatDate(post.date)} file={post.file}/>
             {/each}
         {/if}
     </div>
