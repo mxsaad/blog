@@ -2,26 +2,18 @@
     import FaNewspaper from 'svelte-icons/fa/FaNewspaper.svelte'
     import FaArrowRight from 'svelte-icons/fa/FaArrowRight.svelte'
     import BlogPreviewCard from "$components/BlogPreviewCard.svelte";
+    import BlogPreviewCardSkeleton from './BlogPreviewCardSkeleton.svelte';
     import { onMount } from 'svelte';
-    import { db } from '$lib/firebase';
-    import { collection, getDocs, query, orderBy, limit, type DocumentData, Timestamp } from 'firebase/firestore/lite';
-	import BlogPreviewCardSkeleton from './BlogPreviewCardSkeleton.svelte';
+    import { posts } from '$lib/posts';
+    import { formatDate } from '$lib/functions';
 
-    let posts: DocumentData[] = [];
     let loading = true;
 
-    const formatDate = ({seconds, nanoseconds}: {seconds: number, nanoseconds: number}) => 
-        new Timestamp(seconds, nanoseconds).toDate().toLocaleDateString()
-
     onMount(async () => {
-        try {
-            const q = query(collection(db, 'blogs'), orderBy('date', 'desc'), limit(3));
-            const querySnapshot = await getDocs(q);
-            posts = querySnapshot.docs.map(doc => doc.data());
-            loading = false;
-        } catch (error) {
-            console.error('Error loading posts:', error);
-        }
+        posts.subscribe(data => {
+            if (data.length > 0)
+                loading = false;
+        });
     });
 </script>
 
@@ -38,8 +30,10 @@
         {#if loading}
             <BlogPreviewCardSkeleton/>
         {:else}
-            {#each posts as post (post.id)}
-                <BlogPreviewCard title={post.title} desc={post.desc} mins={post.mins} date={formatDate(post.date)} file={post.file}/>
+            {#each $posts.slice(0, 3) as post (post.id)}
+                {#if post}
+                    <BlogPreviewCard title={post.title} desc={post.desc} mins={post.mins} date={formatDate(post.date)} file={post.file}/>
+                {/if}
             {/each}
         {/if}
     </div>

@@ -3,34 +3,29 @@
     import BlogPreviewCard from "$components/BlogPreviewCard.svelte";
     import BlogPreviewCardSkeleton from '$components/BlogPreviewCardSkeleton.svelte';
     import { onMount } from 'svelte';
-    import { db } from '$lib/firebase';
-    import { collection, getDocs, query, orderBy, type DocumentData, Timestamp } from 'firebase/firestore/lite';
+    import { posts } from '$lib/posts';
+    import { formatDate } from '$lib/functions';
+    import type { DocumentData } from 'firebase/firestore/lite';
 
-    let posts: DocumentData[] = [];
     let filteredPosts: DocumentData[] = [];
     let searchTerm = '';
     let timer: NodeJS.Timeout;
     let loading = true;
 
-    const formatDate = ({seconds, nanoseconds}: {seconds: number, nanoseconds: number }) =>
-        new Timestamp(seconds, nanoseconds).toDate().toLocaleDateString()
     const filterPosts = (s: string) =>
-        filteredPosts = posts.filter(post => post.title.toLowerCase().includes(s) || post.desc.toLowerCase().includes(s));
+        filteredPosts = $posts.filter(post =>
+            post.title.toLowerCase().includes(s) || post.desc.toLowerCase().includes(s)
+        );
     const debounce = (fn: Function) => {
         clearTimeout(timer);
         timer = setTimeout(() => fn(), 300);
     };
 
     onMount(async () => {
-        try {
-            const q = query(collection(db, 'blogs'), orderBy('date', 'desc'));
-            const querySnapshot = await getDocs(q);
-            posts = querySnapshot.docs.map(doc => doc.data());
-            filterPosts(searchTerm.toLowerCase());
-            loading = false;
-        } catch (error) {
-            console.error('Error loading posts:', error);
-        }
+        posts.subscribe(data => {
+            if (data.length > 0)
+                loading = false;
+        });
     });
 
     $: searchTerm, debounce(() => filterPosts(searchTerm.toLowerCase()))
