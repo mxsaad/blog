@@ -16,6 +16,10 @@
         const provider = new GoogleAuthProvider();
         await signInWithPopup(auth, provider);
     }
+    const logout = async () => {
+        await auth.signOut();
+        loggedIn = false;
+    }
     const submit = async () => {
         if (loggedIn && message) {
             const entry = { name, message, timestamp: serverTimestamp() };
@@ -55,7 +59,10 @@
         <p>An artifact of the 90's web. Leave a comment below for my future visitors. Feel free to write anything!</p>
         {#if loggedIn}
             <textarea bind:value={message} class="textarea textarea-primary" placeholder="Enter message"></textarea>
-            <button on:click={submit} class="self-end max-w-fit btn btn-sm btn-primary hover:scale-105 duration-300">Submit</button>
+            <div class="self-end flex gap-2">
+                <button on:click={logout} class="max-w-fit btn btn-sm btn-neutral hover:scale-105 duration-300">Logout</button>
+                <button on:click={submit} class="max-w-fit btn btn-sm btn-primary hover:scale-105 duration-300">Submit</button>
+            </div>
         {:else}
             <button on:click={login} class="self-end btn btn-sm btn-neutral max-w-fit hover:scale-105 duration-300">
                 <img class="w-4 h-4" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="Google logo">
