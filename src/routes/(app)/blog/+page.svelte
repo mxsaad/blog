@@ -12,10 +12,11 @@
     let timer: NodeJS.Timeout;
     let loading = true;
 
-    const filterPosts = (s: string) =>
+    const filterPosts = (s: string) => {
         filteredPosts = $posts.filter(post =>
             post.title.toLowerCase().includes(s) || post.desc.toLowerCase().includes(s)
         );
+    };
     const debounce = (fn: Function) => {
         clearTimeout(timer);
         timer = setTimeout(() => fn(), 300);
@@ -38,13 +39,15 @@
     <meta name="author" content="Muhammad Saad">
 </svelte:head>
 
-<main class="w-screen min-h-screen flex flex-col justify-center items-center py-12 gap-6">
+<main class="w-screen min-h-screen flex flex-col justify-center items-center pt-20 pb-12 gap-6">
     <h1 class="mt-10 flex items-center gap-2 text-xl sm:text-2xl md:text-3xl font-bold">
         <span class="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"><FaNewspaper/></span> All Articles
     </h1>
     <input type="text" placeholder="Search" bind:value={searchTerm} class="input input-bordered input-primary input-sm sm:input-md w-[20rem] sm:w-[24rem] md:w-[28rem] lg:w-[42rem]"/>
-    <div class="flex flex-col xl:flex-row flex-wrap items-center justify-center gap-6 max-w-7xl">
+    <div class="flex flex-col items-center justify-center gap-6">
         {#if loading}
+            <BlogPreviewCardSkeleton/>
+            <BlogPreviewCardSkeleton/>
             <BlogPreviewCardSkeleton/>
         {:else}
             {#each filteredPosts as post (post.id)}

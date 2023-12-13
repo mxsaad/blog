@@ -1,1 +1,1 @@
-<div class="skeleton h-52 w-[20rem] sm:w-[24rem] md:w-[28rem] lg:w-[42rem] xl:w-[28rem] 2xl:w-[24rem]"></div>
+<div class="skeleton h-52 w-[20rem] sm:w-[24rem] md:w-[28rem] lg:w-[42rem]"></div>

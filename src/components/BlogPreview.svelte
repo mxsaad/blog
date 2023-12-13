@@ -26,8 +26,10 @@
             All Articles <span class="h-3 w-3 sm:h-4 sm:w-4"><FaArrowRight/></span>
         </a>
     </div>
-    <div class="flex flex-col xl:flex-row flex-wrap items-center justify-center gap-6 xl:max-w-[57.5rem] 2xl:max-w-[75rem]">
+    <div class="flex flex-col items-center justify-center gap-6">
         {#if loading}
+            <BlogPreviewCardSkeleton/>
+            <BlogPreviewCardSkeleton/>
             <BlogPreviewCardSkeleton/>
         {:else}
             {#each $posts.slice(0, 3) as post (post.id)}
