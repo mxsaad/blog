@@ -21,8 +21,7 @@
 			<!-- Navbar menu content here -->
 			<li><a href="/" class="btn btn-sm btn-ghost hover:text-primary hover:scale-105 duration-300">Home</a></li>
             <li><a href="/blog" class="btn btn-sm btn-ghost hover:text-primary hover:scale-105 duration-300">Blog</a></li>
-            <li><a href="/" class="btn btn-sm btn-ghost hover:text-primary hover:scale-105 duration-300">Snippets</a></li>
-            <li><a href="/" class="btn btn-sm btn-ghost hover:text-primary hover:scale-105 duration-300">Guestbook</a></li>
+            <li><a href="/guestbook" class="btn btn-sm btn-ghost hover:text-primary hover:scale-105 duration-300">Guestbook</a></li>
 		  </ul>
 		</div>
 		<div class="navbar-end">
@@ -41,8 +40,7 @@
 		<!-- Sidebar content here -->
 		<li><a href="/" class="hover:text-primary duration-300">Home</a></li>
 		<li><a href="/blog" class="hover:text-primary duration-300">Blog</a></li>
-		<li><a href="/" class="hover:text-primary duration-300">Snippets</a></li>
-		<li><a href="/" class="hover:text-primary duration-300">Guestbook</a></li>
+		<li><a href="/guestbook" class="hover:text-primary duration-300">Guestbook</a></li>
 	  </ul>
 	</div>
 </div>
