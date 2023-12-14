@@ -5,12 +5,13 @@
     import { onSnapshot, serverTimestamp, addDoc, collection, query, orderBy, type DocumentData } from 'firebase/firestore';
     import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
     import { formatTimestamp } from "$lib/functions";
-	import { writable } from "svelte/store";
 
-    const guestbook = writable([] as DocumentData[]);
-    let loggedIn = false;
+    let guestbook: DocumentData[] = [];
+    let loggedIn: boolean;
     let name: string;
     let message: string;
+    let modal: HTMLDialogElement;
+    let input: HTMLInputElement;
 
     const login = async () => {
         const provider = new GoogleAuthProvider();
@@ -22,26 +23,22 @@
     }
     const submit = async () => {
         if (loggedIn && message) {
-            const entry = { name, message, timestamp: serverTimestamp() };
-            try {
-                await addDoc(collection(db, 'guestbook'), entry);
-                message = '';
-            } catch (e) {
-                console.error('Error submitting message: ', e);
-            }
+            await addDoc(collection(db, 'guestbook'), { name, message, timestamp: serverTimestamp() });
+            input.value = '';
+            modal.showModal();
         }
     }
+    onMount(() => {
+        const q = query(collection(db, 'guestbook'), orderBy('timestamp', 'desc'));
+        onSnapshot(q, (snapshot) => {
+            guestbook = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() as DocumentData }));
+        });
+    });
     onAuthStateChanged(auth, (user) => {
         if (user) {
             loggedIn = true;
             name = user.displayName ? user.displayName : 'Anonymous';
         }
-    });
-    onMount(async () => {
-        const q = query(collection(db, 'guestbook'), orderBy('timestamp', 'desc'));
-        onSnapshot(q, (snapshot) => {
-            guestbook.set(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() as DocumentData })));
-        });
     });
 </script>
 
@@ -58,7 +55,7 @@
         <h1 class="font-bold tracking-tight text-4xl sm:text-5xl">Guestbook</h1>
         <p>An artifact of the 90's web. Leave a comment below for my future visitors. Feel free to write anything!</p>
         {#if loggedIn}
-            <textarea bind:value={message} class="textarea textarea-primary" placeholder="Enter message"></textarea>
+            <input bind:this={input} bind:value={message} type="text" placeholder="Enter message" class="input input-bordered input-primary w-full" />
             <div class="self-end flex gap-2">
                 <button on:click={logout} class="max-w-fit btn btn-sm btn-neutral hover:scale-105 duration-300">Logout</button>
                 <button on:click={submit} class="max-w-fit btn btn-sm btn-primary hover:scale-105 duration-300">Submit</button>
@@ -71,9 +68,21 @@
         {/if}
       </div>
       <div class="px-6 mt-8 [column-fill:_balance] sm:columns-2 sm:gap-6 lg:columns-3 lg:gap-8">
-        {#each $guestbook as entry (entry.id)}
+        {#each guestbook as entry (entry.id)}
             <GuestbookCard message={entry.message} name={entry.name} timestamp={formatTimestamp(entry.timestamp)}/>
         {/each}
       </div>
     </div>
 </main>
+
+<dialog bind:this={modal} class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Thank you!</h3>
+      <p class="py-4">Your message has successfully been added to the guestbook for everyone to see.</p>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
