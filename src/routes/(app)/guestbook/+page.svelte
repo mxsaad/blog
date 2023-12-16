@@ -55,29 +55,28 @@
     <meta name="author" content="Muhammad Saad">
 </svelte:head>
 
-<main class="w-screen min-h-screen px-8 pt-24 pb-12">
-    <div class="mx-auto max-w-screen-lg flex flex-col items-center justify-center">
-      <div class="max-w-sm sm:max-w-md md:max-w-xl lg:max-w-3xl flex flex-col w-fit gap-4">
-        <h1 class="font-bold tracking-tight text-4xl sm:text-5xl">Guestbook</h1>
+<main class="w-screen min-h-screen p-12 pt-24 flex flex-col items-center justify-center">
+    <div class="flex flex-col w-full max-w-4xl gap-4">
+        <h1 class="font-bold text-4xl sm:text-5xl">Guestbook</h1>
         <p>An artifact of the 90's web. Leave a comment below for my future visitors. Feel free to write anything!</p>
         {#if loggedIn}
             {#if !submitted}
-                <input bind:value={message} type="text" placeholder="Enter message" class="input input-bordered input-primary w-full" />
+                <input bind:value={message} type="text" placeholder="Enter message" class="input input-sm sm:input-md input-bordered input-primary w-full" />
                 <div class="self-end flex gap-2">
-                    <button on:click={logout} class="max-w-fit btn btn-sm btn-neutral hover:scale-105 duration-300">Logout</button>
-                    <button on:click={submit} class="max-w-fit btn btn-sm btn-primary hover:scale-105 duration-300">Submit</button>
+                    <button on:click={logout} class="max-w-fit btn btn-sm btn-neutral duration-300">Logout</button>
+                    <button on:click={submit} class="max-w-fit btn btn-sm btn-primary duration-300">Submit</button>
                 </div>
             {:else}
-                <button on:click={logout} class="self-end max-w-fit btn btn-sm btn-neutral hover:scale-105 duration-300">Logout</button>
+                <button on:click={logout} class="self-end max-w-fit btn btn-sm btn-neutral duration-300">Logout</button>
             {/if}
         {:else}
-            <button on:click={login} class="self-end btn btn-sm btn-neutral max-w-fit hover:scale-105 duration-300">
+            <button on:click={login} class="self-end btn btn-sm btn-neutral max-w-fit duration-300">
                 <img class="w-4 h-4" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="Google logo">
                 <span>Login with Google</span>
             </button>
         {/if}
-      </div>
-      <div class="px-6 mt-8 [column-fill:_balance] sm:columns-2 sm:gap-6 lg:columns-3 lg:gap-8">
+        </div>
+        <div class="mt-8 flex flex-col gap-8 max-w-4xl">
         {#each guestbook as entry (entry.id)}
                 <GuestbookCard message={entry.message} name={entry.name} timestamp={formatTimestamp(entry.timestamp)}>
                     {#if loggedIn && userId === entry.userId}
@@ -87,17 +86,16 @@
                     {/if}
                 </GuestbookCard>
         {/each}
-      </div>
     </div>
 </main>
 
 <dialog bind:this={modal} class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box">
-      <h3 class="font-bold text-lg">Thank you!</h3>
-      <p class="py-4">Your message has successfully been added to the guestbook for everyone to see.</p>
+    <div class="modal-box bg-neutral">
+      <h3 class="font-bold text-lg sm:text-xl">Thank you!</h3>
+      <p class="pt-4 text-sm sm:text-base">Your message has successfully been added to the guestbook.</p>
       <div class="modal-action">
         <form method="dialog">
-          <button class="btn">Close</button>
+          <button class="btn btn-sm btn-outline">Close</button>
         </form>
       </div>
     </div>

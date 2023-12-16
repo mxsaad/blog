@@ -4,7 +4,7 @@
     export let timestamp: string;
 </script>
 
-<div class="card mb-6 bg-base-100 sm:break-inside-avoid shadow-lg shadow-neutral hover:shadow-primary duration-300">
+<div class="card w-full h-min bg-base-100 shadow-lg shadow-neutral hover:shadow-primary duration-300">
     <slot />
     <div class="card-body gap-4">
       <p>{message}</p>
