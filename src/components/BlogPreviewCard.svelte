@@ -10,7 +10,7 @@
     export let file: string
 </script>
 
-<div class="card w-[20rem] sm:w-[24rem] md:w-[28rem] lg:w-[42rem] bg-base-100 shadow-lg shadow-neutral hover:shadow-primary hover:scale-105 duration-300">
+<div class="card w-[20rem] sm:w-[24rem] md:w-[28rem] lg:w-[42rem] bg-base-100 shadow-lg shadow-neutral hover:shadow-primary duration-300">
     <div class="card-body">
       <div class="stat-desc flex items-center mb-2">
         <span class="w-3"><FaClock/></span> &nbsp {mins} MIN READ

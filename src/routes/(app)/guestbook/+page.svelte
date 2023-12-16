@@ -1,17 +1,19 @@
 <script lang="ts">
+    import FaRegTrashAlt from 'svelte-icons/fa/FaRegTrashAlt.svelte';
 	import GuestbookCard from "$components/GuestbookCard.svelte";
     import { onMount } from 'svelte';
     import { db, auth } from '$lib/firebase';
-    import { onSnapshot, serverTimestamp, addDoc, collection, query, orderBy, type DocumentData } from 'firebase/firestore';
+    import { onSnapshot, serverTimestamp, addDoc, collection, query, orderBy, deleteDoc, doc, type DocumentData } from 'firebase/firestore';
     import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
     import { formatTimestamp } from "$lib/functions";
 
-    let guestbook: DocumentData[] = [];
-    let loggedIn: boolean;
-    let name: string;
-    let message: string;
+    let guestbook = [] as DocumentData[];
+    let loggedIn = false;
+    let submitted = false;
+    let userId = '';
+    let name = '';
+    let message = '';
     let modal: HTMLDialogElement;
-    let input: HTMLInputElement;
 
     const login = async () => {
         const provider = new GoogleAuthProvider();
@@ -23,10 +25,13 @@
     }
     const submit = async () => {
         if (loggedIn && message) {
-            await addDoc(collection(db, 'guestbook'), { name, message, timestamp: serverTimestamp() });
-            input.value = '';
+            await addDoc(collection(db, 'guestbook'), { name, message, userId, timestamp: serverTimestamp() });
             modal.showModal();
+            submitted = true;
         }
+    }
+    const remove = async (id: string) => {
+        await deleteDoc(doc(db, 'guestbook', id));
     }
     onMount(() => {
         const q = query(collection(db, 'guestbook'), orderBy('timestamp', 'desc'));
@@ -37,6 +42,7 @@
     onAuthStateChanged(auth, (user) => {
         if (user) {
             loggedIn = true;
+            userId = user.uid;
             name = user.displayName ? user.displayName : 'Anonymous';
         }
     });
@@ -55,11 +61,15 @@
         <h1 class="font-bold tracking-tight text-4xl sm:text-5xl">Guestbook</h1>
         <p>An artifact of the 90's web. Leave a comment below for my future visitors. Feel free to write anything!</p>
         {#if loggedIn}
-            <input bind:this={input} bind:value={message} type="text" placeholder="Enter message" class="input input-bordered input-primary w-full" />
-            <div class="self-end flex gap-2">
-                <button on:click={logout} class="max-w-fit btn btn-sm btn-neutral hover:scale-105 duration-300">Logout</button>
-                <button on:click={submit} class="max-w-fit btn btn-sm btn-primary hover:scale-105 duration-300">Submit</button>
-            </div>
+            {#if !submitted}
+                <input bind:value={message} type="text" placeholder="Enter message" class="input input-bordered input-primary w-full" />
+                <div class="self-end flex gap-2">
+                    <button on:click={logout} class="max-w-fit btn btn-sm btn-neutral hover:scale-105 duration-300">Logout</button>
+                    <button on:click={submit} class="max-w-fit btn btn-sm btn-primary hover:scale-105 duration-300">Submit</button>
+                </div>
+            {:else}
+                <button on:click={logout} class="self-end max-w-fit btn btn-sm btn-neutral hover:scale-105 duration-300">Logout</button>
+            {/if}
         {:else}
             <button on:click={login} class="self-end btn btn-sm btn-neutral max-w-fit hover:scale-105 duration-300">
                 <img class="w-4 h-4" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="Google logo">
@@ -69,7 +79,13 @@
       </div>
       <div class="px-6 mt-8 [column-fill:_balance] sm:columns-2 sm:gap-6 lg:columns-3 lg:gap-8">
         {#each guestbook as entry (entry.id)}
-            <GuestbookCard message={entry.message} name={entry.name} timestamp={formatTimestamp(entry.timestamp)}/>
+                <GuestbookCard message={entry.message} name={entry.name} timestamp={formatTimestamp(entry.timestamp)}>
+                    {#if loggedIn && userId === entry.userId}
+                        <button on:click={() => remove(entry.id)} class="absolute right-2 top-2 btn btn-ghost btn-xs hover:text-error p-2 h-8 w-8">
+                            <FaRegTrashAlt/>
+                        </button>
+                    {/if}
+                </GuestbookCard>
         {/each}
       </div>
     </div>
@@ -85,4 +101,4 @@
         </form>
       </div>
     </div>
-  </dialog>
+</dialog>

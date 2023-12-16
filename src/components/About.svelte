@@ -9,7 +9,7 @@
             <span class="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"><FaUserCircle/></span> About Me
         </h2>
     </div>
-    <div class="card p-8 gap-4 w-[20rem] sm:w-[24rem] md:w-[28rem] lg:w-[42rem] bg-base-100 shadow-lg shadow-neutral hover:shadow-primary hover:scale-[102%] duration-300">
+    <div class="card p-8 gap-4 w-[20rem] sm:w-[24rem] md:w-[28rem] lg:w-[42rem] bg-base-100 shadow-lg shadow-neutral hover:shadow-primary duration-300">
         <h2 class="card-title self-center text-4xl sm:text-5xl font-['The_Nautigal']">Muhammad Saad</h2>
         <p class="text-justify text-sm sm:text-md">Using modern technologies to solve modern problems. My specialty is fullstack development, but I love learning new technologies. I'm passionate about privacy, security, cryptocurrency, productivity, fitness, and reading. If that sounds like you, check out my blog or reach out to connect.</p>
         <div class="card-actions justify-end">
