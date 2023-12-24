@@ -9,7 +9,7 @@
 
     export let data: PageData;
 
-    let title = 'Blog | Muhammad Saad';
+    let title = 'Blog';
     let desc = 'Muhammad Saad is a fullstack software engineer who likes to write about privacy, security, cryptocurrency, productivity, fitness, and reading.';
     let keywords = 'SWE, Blog, Privacy, Security, Productivity, Cryptocurrency, Fitness, Reading';
     let mins = 0;
