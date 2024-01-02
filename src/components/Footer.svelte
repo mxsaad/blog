@@ -1,7 +1,7 @@
 <script lang="ts">
   import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte'
   import FaGithub from 'svelte-icons/fa/FaGithub.svelte'
-  import FaLinkedin from 'svelte-icons/fa/FaLinkedin.svelte'
+  import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte'
 </script>
 
 <footer class="footer footer-center p-10 bg-neutral text-neutral-content">
@@ -11,7 +11,7 @@
     <a href="/guestbook" class="link link-hover">Guestbook</a>
   </nav> 
   <nav>
-    <div class="grid grid-flow-col gap-4">
+    <div class="flex items-center justify-center gap-4">
         <a class="w-6" href="mailto:hi@mxsaad.com" target="_blank" rel="noopener noreferrer">
             <FaEnvelope/>
         </a>
@@ -19,7 +19,7 @@
             <FaGithub/>
         </a>
         <a class="w-6" href="https://linkedin.com/in/mxsaad" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin/>
+            <FaLinkedinIn/>
         </a>
     </div>
   </nav> 
