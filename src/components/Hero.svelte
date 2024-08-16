@@ -1,7 +1,6 @@
 <script lang="ts">
     import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte'
     import FaGithub from 'svelte-icons/fa/FaGithub.svelte'
-    import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte'
     import hero from '$assets/hero.gif'
 </script>
 
@@ -19,9 +18,6 @@
                 </a>
                 <a class="btn join-item btn-ghost hover:text-primary duration-300" href="https://github.com/mxsaad" target="_blank" rel="noopener noreferrer">
                     <span class="w-6 md:w-7 lg:w-8"><FaGithub/></span>
-                </a>
-                <a class="btn join-item btn-ghost hover:text-primary duration-300" href="https://linkedin.com/in/mxsaad" target="_blank" rel="noopener noreferrer">
-                    <span class="w-6 md:w-7 lg:w-8"><FaLinkedinIn/></span>
                 </a>
             </div>
           </div>

@@ -15,7 +15,7 @@
 		<div class="navbar-start pl-2">
 			<a href="/" class="font-['The_Nautigal'] lg:ml-2 btn btn-circle btn-ghost hover:bg-transparent hover:text-primary duration-300 text-2xl">MS</a>
 		</div>
-		<div class="navbar-center hidden lg:flex">
+		<div class="navbar-end hidden lg:flex">
 		  <ul class="menu menu-horizontal items-center justify-center">
 			<!-- Navbar menu content here -->
 			<li><a href="/" class="btn btn-sm btn-ghost hover:text-primary duration-300">Home</a></li>
@@ -23,11 +23,6 @@
             <li><a href="/guestbook" class="btn btn-sm btn-ghost hover:text-primary duration-300">Guestbook</a></li>
 		  </ul>
 		</div>
-		<div class="navbar-end">
-			<a class="btn btn-ghost btn-sm mr-2 hover:text-primary duration-300" href="https://dub.sh/eyj5LqY" target="_blank" rel="noopener noreferrer">
-			  Resume <span class="w-4 h-4"><FaExternalLinkAlt /></span>
-			</a>
-		  </div>
 	  </div>
 	  <!-- Page content here -->
 	  <slot />

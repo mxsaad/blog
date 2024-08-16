@@ -1,7 +1,6 @@
 <script lang="ts">
   import FaEnvelope from 'svelte-icons/fa/FaEnvelope.svelte'
   import FaGithub from 'svelte-icons/fa/FaGithub.svelte'
-  import FaLinkedinIn from 'svelte-icons/fa/FaLinkedinIn.svelte'
 </script>
 
 <footer class="footer footer-center p-10 bg-neutral text-neutral-content">
@@ -17,9 +16,6 @@
         </a>
         <a class="w-6" href="https://github.com/mxsaad" target="_blank" rel="noopener noreferrer">
             <FaGithub/>
-        </a>
-        <a class="w-6" href="https://linkedin.com/in/mxsaad" target="_blank" rel="noopener noreferrer">
-            <FaLinkedinIn/>
         </a>
     </div>
   </nav> 
